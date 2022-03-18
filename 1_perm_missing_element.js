@@ -1,19 +1,17 @@
-let array = [3, 7, 6, 2, 5, 4, 8, 1]
+let array = [7, 3, 2, 8, 5, 4, 1]
+// let array = [2, 5, 4, 1]
 
 const findMissingNum = (arr) => {
-  let sorted = arr.sort()
-  let start = sorted[0]
-  let found = false
+  let newArrLen = arr.length + 2;
+  let newArr = new Array(newArrLen);
 
-  for (let i = 0; i < sorted.length; i++) {
-    if (sorted[i] != start) {
-      found = start
-      break
-    }
-    start++
-  }
+  for (let i = 0; i < newArrLen; i++) newArr[i] = false;
+  newArr[0] = true;
 
-  return found
+  for (i = 0; i < arr.length; i++) newArr[arr[i]] = true;
+
+  return newArr.indexOf(false)
+
 }
 
 console.log(findMissingNum(array))
