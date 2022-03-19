@@ -1,5 +1,6 @@
-let array = [7, 3, 2, 8, 5, 4, 1]
+// let array = [7, 3, 2, 8, 5, 4, 1]
 // let array = [2, 5, 4, 1]
+let array = []
 
 const findMissingNum = (arr) => {
   let length = arr.length + 1;
