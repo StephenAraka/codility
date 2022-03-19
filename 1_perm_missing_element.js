@@ -2,16 +2,15 @@ let array = [7, 3, 2, 8, 5, 4, 1]
 // let array = [2, 5, 4, 1]
 
 const findMissingNum = (arr) => {
-  let newArrLen = arr.length + 2;
-  let newArr = new Array(newArrLen);
+  let length = arr.length + 1;
+  let sum = 0;
+  let current = arr.reduce((partialSum, accumulated) => partialSum + accumulated, 0);
 
-  for (let i = 0; i < newArrLen; i++) newArr[i] = false;
-  newArr[0] = true;
+  for (let i = 1; i <= length; i++) {
+    sum += i
+  }
 
-  for (i = 0; i < arr.length; i++) newArr[arr[i]] = true;
-
-  return newArr.indexOf(false)
-
+  return sum - current;
 }
 
 console.log(findMissingNum(array))
