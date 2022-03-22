@@ -1,4 +1,4 @@
-const array = [1, 3, 1, 4, 2, 3, 5, 4]
+// const array = [1, 3, 1, 4, 2, 3, 5, 4]
 
 const frogJump = (X, A) => {
   let path = new Array(X);
@@ -20,4 +20,9 @@ const frogJump = (X, A) => {
   return -1;
 }
 
-console.log(frogJump(5, array));
+console.log(frogJump(5, [1, 3, 1, 4, 2, 3, 5, 4]));
+
+console.log(frogJump(1, [1, 1, 1]));
+
+console.log(frogJump(3, [1, 2, 1]));
+
