@@ -1,14 +1,31 @@
-let array = [2, 5, 4, 2, 4, 3, 4, 4, 1, 4, 4];
+let array = [2, 4, 2, 4, 3, 4];
 
 const getLeader = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] !== array[i + 1]) {
-      array.splice(i, 2);
+  let candidate;
+  let consecutive = 0;
+
+  array.forEach(item => {
+    if (consecutive === 0) {
+      candidate = item;
+      consecutive += 1;
+    } else if (candidate === item) {
+      consecutive += 1;
+    } else {
+      consecutive -= 1;
     }
-    if (array.length === 1) break;
+  })
+
+  let occurence = 0;
+  let index = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === candidate) {
+      occurence++;
+      index = i;
+    }
   }
 
-  return array[0];
+  return occurence > array.length / 2 ? index : -1;
 }
 
 console.log(getLeader(array))
