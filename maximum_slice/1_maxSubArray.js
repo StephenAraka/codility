@@ -11,17 +11,11 @@ const maxProfit = (input) => {
   let localMax = array[0];
 
   for (let i = 1; i < array.length; i++) {
-    if (array[i] < localMax + array[i]) {
-      localMax = localMax + array[i];
-    } else {
-      localMax = array[i];
-    }
-
-    if (localMax > globalMax) globalMax = localMax;
+    localMax = Math.max(array[i], localMax + array[i]);
+    globalMax = Math.max(localMax, globalMax);
   }
 
-  console.log(array);
-  console.log(globalMax, localMax);
+  return globalMax;
 }
 
-maxProfit(input);
+console.log(maxProfit(input));
