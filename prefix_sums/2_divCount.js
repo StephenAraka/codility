@@ -1,10 +1,9 @@
 const solution = (a, b, k) => {
-  let count = 0;
-  for (let i = a; i <= b; i++) {
-    if (i % k === 0) count++;
-  }
+  let start, end;
+  start = Math.ceil(a / k);
+  end = Math.floor(b / k);
 
-  console.log(count);
+  console.log((end - start) + 1);
 }
 
 solution(6, 11, 2)
